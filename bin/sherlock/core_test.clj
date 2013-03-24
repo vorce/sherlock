@@ -53,22 +53,31 @@
                           "PRIVMSG"
                           (seq ["#octavorce", ":oh,", "you", "again", ":)"])
                           ":vorce!~vorce@c83-248-68-145.bredband.comhem.se PRIVMSG #octavorce :oh, you again :)") 
-        (create-irc-command ":vorce!~vorce@c83-248-68-145.bredband.comhem.se PRIVMSG #octavorce :oh, you again :)")
+        (create-irc-command
+          ":vorce!~vorce@c83-248-68-145.bredband.comhem.se PRIVMSG #octavorce :oh, you again :)")
          )))
 
 (deftest irc-message-from-vorce-should-be-bosscommand
-  (is (= (bosscommand? (create-irc-command ":vorce!~vorce@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :HELLO"))
+  (is (= (bosscommand?
+           (create-irc-command
+             ":vorce!~vorce@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :HELLO"))
          true)))
 
 (deftest irc-message-from-loser-should-not-be-bosscommand
-  (is (= (bosscommand? (create-irc-command ":loser!~loser@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :HELLO"))
+  (is (= (bosscommand?
+           (create-irc-command
+             ":loser!~loser@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :HELLO"))
          false)))
 
 (deftest irc-message-with-magic-words-should-be-quitcommand
-  (is (= (quitcommand? (create-irc-command ":loser!~loser@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :QUIT IRC YOU FOOL"))
+  (is (= (quitcommand?
+           (create-irc-command
+             ":loser!~loser@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :QUIT IRC YOU FOOL"))
          true)))
 
 (deftest irc-message-without-magic-words-should-not-be-quitcommand
-  (is (= (quitcommand? (create-irc-command ":loser!~loser@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :HELLO"))
+  (is (= (quitcommand?
+           (create-irc-command
+             ":loser!~loser@c83-248-68-145.bredband.comhem.se PRIVMSG sherlock_clj :HELLO"))
          false)))
                
