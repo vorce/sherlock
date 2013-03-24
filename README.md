@@ -1,6 +1,9 @@
 # sherlock
 
-Minimal IRC bot
+Incomplete, minimal IRC bot/framework
+
+Currently sherlock can answer pings, join channels and quit upon request.
+
 
 ## License
 
