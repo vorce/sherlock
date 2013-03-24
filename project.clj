@@ -8,6 +8,4 @@
                  [aleph "0.3.0-alpha2"]
                  ;; [aleph "0.3.0-beta15"]
                  ;; [saturnine "0.2"]
-                 ;; [conduit-irc "2.0.1-SNAPSHOT"]
-                 ;; [irclj "0.4.1"]
                  ])
